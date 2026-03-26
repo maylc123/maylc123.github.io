@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>May Cheah — Data Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0C0C0E;
+      --surface: #151518;
+      --surface-2: #1C1C21;
+      --border: #2A2A32;
+      --text: #E8E6E3;
+      --text-muted: #9B9A97;
+      --accent: #6EE7B7;
+      --accent-dim: rgba(110, 231, 183, 0.12);
+      --accent-mid: rgba(110, 231, 183, 0.25);
+      --warm: #F5C77E;
+      --warm-dim: rgba(245, 199, 126, 0.12);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --max-w: 1080px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent-mid); color: var(--text); }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12, 12, 14, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    nav .logo span { color: var(--accent); }
+    nav .nav-links { display: flex; gap: 2rem; }
+    nav .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--accent); opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-text .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .hero-text h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), var(--warm));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-links a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 500;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .hero-links .primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .hero-links .primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .hero-links .secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .hero-links .secondary:hover { border-color: var(--accent); }
+
+    .hero-photo {
+      width: 320px; height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      position: relative;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%);
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, var(--bg));
+      pointer-events: none;
+    }
+
+    /* ── SECTION GENERAL ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SKILLS STRIP ── */
+    .skills-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+    .skills-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .skill-group h4 {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .skill-group p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .project-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border-color: var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card.featured::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px; right: -1px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--warm));
+      border-radius: 14px 14px 0 0;
+    }
+    .card-tags {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .card-tags span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--warm);
+      background: var(--warm-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .project-card h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .project-card.featured h3 { font-size: 1.6rem; }
+    .project-card .finding {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .project-card .finding strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .card-meta {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-meta a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .card-meta a:hover { background: var(--accent-mid); opacity: 1; }
+
+    .stat-row {
+      display: flex; gap: 2rem; margin-bottom: 1.5rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat .num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat .label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5rem; bottom: 0.5rem;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem; top: 0.6rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-item .role {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.15rem;
+    }
+    .timeline-item .company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .timeline-item .period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item .desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 560px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+    .edu-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    .edu-card .school {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .edu-card .year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .edu-card .honors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .edu-card .honors strong { color: var(--warm); font-weight: 500; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      text-align: center;
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .contact-section h2 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    .contact-section p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .contact-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-text h1 { font-size: 2.6rem; }
+      .hero-photo { width: 220px; height: 260px; margin: 0 auto; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .skills-inner { gap: 1.5rem; }
+      nav .nav-links { gap: 1rem; }
+      nav .nav-links a { font-size: 0.75rem; }
+      .stat-row { gap: 1rem; }
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">may<span>.</span></div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="tag fade-in">Data Scientist</span>
+      <h1 class="fade-in delay-1">May Cheah</h1>
+      <p class="subtitle fade-in delay-2">
+        I use NLP, causal inference, and network analysis to find signal in messy, large-scale data.
+        PhD in Finance from UCLA Anderson. Previously at Wells Fargo and Khazanah (sovereign wealth fund).
+      </p>
+      <div class="hero-links fade-in delay-3">
+        <a href="mailto:maylyncheah@gmail.com" class="primary">Get in touch</a>
+        <a href="https://linkedin.com/in/maylyncheah123" class="secondary" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mlcheah" class="secondary" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-photo fade-in delay-4">
+      <!-- Replace src with your headshot path -->
+      <img src="image/headshot1.png" alt="May Cheah">
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-strip">
+  <div class="skills-inner">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <p>Python, R, SQL</p>
+    </div>
+    <div class="skill-group">
+      <h4>ML &amp; NLP</h4>
+      <p>scikit-learn, NLTK, Gensim, BERTopic</p>
+    </div>
+    <div class="skill-group">
+      <h4>Data</h4>
+      <p>pandas, NumPy, NetworkX</p>
+    </div>
+    <div class="skill-group">
+      <h4>Visualization</h4>
+      <p>Matplotlib, Seaborn, Tableau</p>
+    </div>
+    <div class="skill-group">
+      <h4>Methods</h4>
+      <p>Causal Inference, Classification, Dimensionality Reduction</p>
+    </div>
+    <div class="skill-group">
+      <h4>Tools</h4>
+      <p>Git, Stata, LaTeX</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-desc">Research and applied projects spanning NLP, causal inference, network science, and fraud detection.</p>
+
+    <div class="projects-grid">
+
+      <!-- FEATURED: Influencer Sentiment -->
+      <div class="project-card featured">
+        <div>
+          <div class="card-tags">
+            <span>NLP</span>
+            <span>Causal Inference</span>
+            <span>Network Analysis</span>
+          </div>
+          <h3>How Twitter Influencers Move Housing Markets</h3>
+          <p class="finding">
+            Proved that <strong>influencer sentiment on Twitter causally shifts follower opinions and downstream housing prices</strong>,
+            using instrumental variables on 1.2M real-estate tweets across 50 cities. Built graph-based network models to map the
+            unidirectional flow of sentiment from influencers to followers.
+          </p>
+          <div class="card-meta">
+            <a href="https://github.com/mlcheah/portfolio/blob/main/project_code/network_analysis.ipynb" target="_blank">Network Code</a>
+            <a href="https://drive.google.com/file/d/1g5O3TfNv4gH--EKK3eSh42k9ib91S1kg/view?usp=sharing" target="_blank">Slides</a>
+          </div>
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="num">1.2M+</div>
+              <div class="label">Tweets analyzed</div>
+            </div>
+            <div class="stat">
+              <div class="num">50</div>
+              <div class="label">Cities</div>
+            </div>
+          </div>
+          <p class="finding" style="font-size: 0.88rem;">
+            <strong>Methods:</strong> VADER sentiment scoring, instrumental variable regression, NetworkX graph construction,
+            panel data econometrics. Data merged from Twitter API, Zillow housing indices, and Census demographics.
+          </p>
+        </div>
+      </div>
+
+      <!-- BERTopic -->
+      <div class="project-card">
+        <div class="card-tags">
+          <span>NLP</span>
+          <span>Topic Modeling</span>
+        </div>
+        <h3>Real Estate Narratives in Social Media</h3>
+        <p class="finding">
+          Applied <strong>BERTopic and LDA topic modeling</strong> to 5.8M tweets to uncover thematic structures
+          driving real estate discourse — identifying how media narratives correlate with price movements.
+        </p>
+        <div class="card-meta">
+          <a href="https://github.com/mlcheah/portfolio/blob/main/project_code/bert_portfolio.py" target="_blank">Code</a>
+        </div>
+      </div>
+
+      <!-- Fraud Detection (Wells Fargo) -->
+      <div class="project-card">
+        <div class="card-tags">
+          <span>Classification</span>
+          <span>Dimensionality Reduction</span>
+        </div>
+        <h3>Transaction Fraud vs. Scam Detection</h3>
+        <p class="finding">
+          At Wells Fargo, <strong>trained binary classifiers to detect transaction risk</strong>, comparing joint vs. separate
+          model architectures. Used UMAP and t-SNE to visualize high-dimensional feature spaces and isolate fraud-scam boundaries.
+        </p>
+        <div class="card-meta">
+          <a href="#" class="disabled" style="opacity:0.5; pointer-events:none;">Industry project — code not public</a>
+        </div>
+      </div>
+
+      <!-- Cleantech VC -->
+      <div class="project-card">
+        <div class="card-tags">
+          <span>Causal Inference</span>
+          <span>Policy Analysis</span>
+        </div>
+        <h3>Policy Uncertainty and Cleantech VC Funding</h3>
+        <p class="finding">
+          Measured how clean energy policy uncertainty <strong>reduced venture capital flows into cleantech</strong>,
+          using difference-in-differences and synthetic control methods on 83K+ Crunchbase deals (2010–2021).
+        </p>
+        <div class="card-meta">
+          <a href="https://drive.google.com/file/d/1M0j-qLO2n_tPtNeiqG2zzOqd74dXbaRu/view?usp=drive_link" target="_blank">Slides</a>
+          <a href="https://drive.google.com/file/d/1fJQi4vHRiqARR-3U3lv9QZNYZbGk4THy/view?usp=drive_link" target="_blank">Paper</a>
+        </div>
+      </div>
+
+      <!-- Migration -->
+      <div class="project-card">
+        <div class="card-tags">
+          <span>Econometrics</span>
+          <span>Panel Data</span>
+        </div>
+        <h3>Economic Shocks and Migration Patterns</h3>
+        <p class="finding">
+          Applied a Panel VAR model with GMM estimation across <strong>nine countries (1991–2011)</strong> to isolate how
+          GDP per capita and unemployment causally drive immigration flows.
+        </p>
+        <div class="card-meta">
+          <a href="https://drive.google.com/file/d/1SliFnsmI626Vtv4kn6dUQXJSlh7LAvFt/view?usp=drive_link" target="_blank">Slides</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="role">Quantitative Analytics Intern</div>
+        <div class="company">Wells Fargo — Charlotte, NC</div>
+        <div class="period">Jun 2025 — Aug 2025</div>
+        <div class="desc">Built and evaluated binary classification models for transaction risk detection.
+          Applied UMAP and t-SNE for high-dimensional data visualization in fraud/scam analysis.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="role">Graduate Researcher</div>
+        <div class="company">UCLA Anderson — Los Angeles, CA</div>
+        <div class="period">Sep 2020 — Mar 2026</div>
+        <div class="desc">Led three independent research projects using NLP, causal inference, and network analysis
+          on datasets spanning 1.2M+ tweets, 83K+ VC deals, and SEC filings. Taught Python and quantitative methods to 100+ MFE/MBA students.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="role">Investments Analyst</div>
+        <div class="company">Khazanah Americas (Sovereign Wealth Fund) — San Francisco, CA</div>
+        <div class="period">Oct 2018 — Aug 2020</div>
+        <div class="desc">Conducted quantitative due diligence for technology investments.
+          Built Tableau dashboards for investment forecasting and trend analysis.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="role">Transfer Pricing Consultant Intern</div>
+        <div class="company">Deloitte — San Francisco, CA</div>
+        <div class="period">Jun 2017 — Aug 2017</div>
+        <div class="desc">Conducted benchmarking and comparability analyses for multinational tech firms (&gt;$10B market cap).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>PhD in Finance</h3>
+        <div class="school">UCLA Anderson School of Management</div>
+        <div class="year">Sep 2020 — Mar 2026</div>
+        <div class="honors"><strong>Ziman Center Gilbert Doctoral Student Fellow</strong></div>
+      </div>
+      <div class="edu-card">
+        <h3>BA Economics &amp; BSc Environmental Economics</h3>
+        <div class="school">University of California, Berkeley</div>
+        <div class="year">Aug 2014 — May 2018</div>
+        <div class="honors"><strong>Valedictorian</strong> — Agricultural Resource Economics (1 of 125). Highest Honors in Economics.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2>Let's connect</h2>
+  <p>I'm looking for data scientist roles in the Bay Area. If you're working on interesting problems with messy data, I'd love to talk.</p>
+  <div class="contact-links">
+    <a href="mailto:maylyncheah@gmail.com">✉ maylyncheah@gmail.com</a>
+    <a href="tel:213-7888249">✆ 213-788-8249</a>
+    <a href="https://linkedin.com/in/maylyncheah123" target="_blank">LinkedIn</a>
+    <a href="https://github.com/mlcheah" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 May Cheah
+</footer>
+
+</body>
+</html>
