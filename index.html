@@ -546,11 +546,11 @@
   <div class="section-inner">
     <p class="section-label">Selected Work</p>
     <h2 class="section-title">Projects</h2>
-    <p class="section-desc">Research and applied projects spanning NLP, causal inference, network science, and fraud detection.</p>
+    <p class="section-desc">Research and applied projects spanning causal inference, NLP, network science, and fraud detection.</p>
 
     <div class="projects-grid">
 
-      <!-- FEATURED: Influencer Sentiment -->
+      <!-- FEATURED: Influencer Sentiment (Ch 2) -->
       <div class="project-card featured">
         <div>
           <div class="card-tags">
@@ -565,7 +565,6 @@
             unidirectional flow of sentiment from influencers to followers.
           </p>
           <div class="card-meta">
-            <a href="https://github.com/mlcheah/portfolio/blob/main/project_code/network_analysis.ipynb" target="_blank">Network Code</a>
             <a href="https://drive.google.com/file/d/1g5O3TfNv4gH--EKK3eSh42k9ib91S1kg/view?usp=sharing" target="_blank">Slides</a>
           </div>
         </div>
@@ -587,19 +586,19 @@
         </div>
       </div>
 
-      <!-- BERTopic -->
+      <!-- SEC Climate Disclosure (Ch 1) -->
       <div class="project-card">
         <div class="card-tags">
-          <span>NLP</span>
-          <span>Topic Modeling</span>
+          <span>Event Study</span>
+          <span>ESG</span>
+          <span>Capital Allocation</span>
         </div>
-        <h3>Real Estate Narratives in Social Media</h3>
+        <h3>When Climate Disclosure Backfires on ESG Leaders</h3>
         <p class="finding">
-          Applied <strong>BERTopic and LDA topic modeling</strong> to 5.8M tweets to uncover thematic structures
-          driving real estate discourse — identifying how media narratives correlate with price movements.
+          Studied the SEC's 2022 climate disclosure proposal and found that <strong>high-ESG firms saw negative abnormal returns while low-ESG firms gained</strong> — investors interpreted the Scope 3 mandate as eroding voluntary disclosure advantages. ESG mutual funds reallocated capital toward environmental laggards post-announcement.
         </p>
         <div class="card-meta">
-          <a href="https://github.com/mlcheah/portfolio/blob/main/project_code/bert_portfolio.py" target="_blank">Code</a>
+          <a href="https://drive.google.com/file/d/1fJQi4vHRiqARR-3U3lv9QZNYZbGk4THy/view?usp=drive_link" target="_blank">Paper</a>
         </div>
       </div>
 
@@ -611,15 +610,15 @@
         </div>
         <h3>Transaction Fraud vs. Scam Detection</h3>
         <p class="finding">
-          At Wells Fargo, <strong>trained binary classifiers to detect transaction risk</strong>, comparing joint vs. separate
-          model architectures. Used UMAP and t-SNE to visualize high-dimensional feature spaces and isolate fraud-scam boundaries.
+          At Wells Fargo, <strong>evaluated binary classification models for transaction risk detection</strong>, comparing joint vs. separate
+          model architectures to inform the team's production approach. Used UMAP and t-SNE to isolate key features distinguishing fraud from scam activity.
         </p>
         <div class="card-meta">
-          <a href="#" class="disabled" style="opacity:0.5; pointer-events:none;">Industry project — code not public</a>
+          <a href="#" style="opacity:0.5; pointer-events:none;">Industry project — code not public</a>
         </div>
       </div>
 
-      <!-- Cleantech VC -->
+      <!-- Cleantech VC (Ch 3) -->
       <div class="project-card">
         <div class="card-tags">
           <span>Causal Inference</span>
@@ -627,28 +626,12 @@
         </div>
         <h3>Policy Uncertainty and Cleantech VC Funding</h3>
         <p class="finding">
-          Measured how clean energy policy uncertainty <strong>reduced venture capital flows into cleantech</strong>,
+          Measured how clean energy policy uncertainty <strong>reduced venture capital flows into cleantech by ~23%</strong>,
           using difference-in-differences and synthetic control methods on 83K+ Crunchbase deals (2010–2021).
         </p>
         <div class="card-meta">
           <a href="https://drive.google.com/file/d/1M0j-qLO2n_tPtNeiqG2zzOqd74dXbaRu/view?usp=drive_link" target="_blank">Slides</a>
           <a href="https://drive.google.com/file/d/1fJQi4vHRiqARR-3U3lv9QZNYZbGk4THy/view?usp=drive_link" target="_blank">Paper</a>
-        </div>
-      </div>
-
-      <!-- Migration -->
-      <div class="project-card">
-        <div class="card-tags">
-          <span>Econometrics</span>
-          <span>Panel Data</span>
-        </div>
-        <h3>Economic Shocks and Migration Patterns</h3>
-        <p class="finding">
-          Applied a Panel VAR model with GMM estimation across <strong>nine countries (1991–2011)</strong> to isolate how
-          GDP per capita and unemployment causally drive immigration flows.
-        </p>
-        <div class="card-meta">
-          <a href="https://drive.google.com/file/d/1SliFnsmI626Vtv4kn6dUQXJSlh7LAvFt/view?usp=drive_link" target="_blank">Slides</a>
         </div>
       </div>
 
