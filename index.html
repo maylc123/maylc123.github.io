@@ -548,42 +548,24 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-desc">Research and applied projects spanning causal inference, NLP, network science, and fraud detection.</p>
 
-    <div class="projects-grid">
+    <div class="projects-grid" style="grid-template-columns: 1fr 1fr;">
 
-      <!-- FEATURED: Influencer Sentiment (Ch 2) -->
-      <div class="project-card featured">
-        <div>
-          <div class="card-tags">
-            <span>NLP</span>
-            <span>Causal Inference</span>
-            <span>Network Analysis</span>
-          </div>
-          <h3>How Twitter Influencers Move Housing Markets</h3>
-          <p class="finding">
-            Proved that <strong>influencer sentiment on Twitter causally shifts follower opinions and downstream housing prices</strong>,
-            using instrumental variables on 1.2M real-estate tweets across 50 cities. Built graph-based network models to map the
-            unidirectional flow of sentiment from influencers to followers.
-          </p>
-          <div class="card-meta">
-            <a href="https://drive.google.com/file/d/1j03aB-Ve-6BN-8hmdi1WCEgbDv79h09L/view?usp=sharing" target="_blank">Slides</a>
-            <a href="https://drive.google.com/file/d/12KoDtNz690VFdA1HXq1DomJESOcimPhA/view?usp=sharing" target="_blank">Paper</a>
-          </div>
+      <!-- Twitter Influencer Sentiment (Ch 2) -->
+      <div class="project-card">
+        <div class="card-tags">
+          <span>NLP</span>
+          <span>Causal Inference</span>
+          <span>Network Analysis</span>
         </div>
-        <div>
-          <div class="stat-row">
-            <div class="stat">
-              <div class="num">1.2M+</div>
-              <div class="label">Tweets analyzed</div>
-            </div>
-            <div class="stat">
-              <div class="num">50</div>
-              <div class="label">Cities</div>
-            </div>
-          </div>
-          <p class="finding" style="font-size: 0.88rem;">
-            <strong>Methods:</strong> VADER sentiment scoring, instrumental variable regression, NetworkX graph construction,
-            panel data econometrics. Data merged from Twitter API, Zillow housing indices, and Census demographics.
-          </p>
+        <h3>How Twitter Influencers Move Housing Markets</h3>
+        <p class="finding">
+          Proved that <strong>influencer sentiment on Twitter causally shifts follower opinions and downstream housing prices</strong>,
+          using instrumental variables on 1.2M real-estate tweets across 50 cities. Built graph-based network models to map the
+          unidirectional flow of sentiment from influencers to followers.
+        </p>
+        <div class="card-meta">
+          <a href="https://drive.google.com/file/d/1j03aB-Ve-6BN-8hmdi1WCEgbDv79h09L/view?usp=sharing" target="_blank">Slides</a>
+          <a href="https://drive.google.com/file/d/12KoDtNz690VFdA1HXq1DomJESOcimPhA/view?usp=sharing" target="_blank">Paper</a>
         </div>
       </div>
 
@@ -596,7 +578,7 @@
         </div>
         <h3>When Climate Disclosure Backfires on ESG Leaders</h3>
         <p class="finding">
-          Studied the SEC's 2022 climate disclosure proposal and found that <strong>high-ESG firms saw negative abnormal returns while low-ESG firms gained</strong> — investors interpreted the Scope 3 mandate as eroding voluntary disclosure advantages. ESG mutual funds reallocated capital toward environmental laggards post-announcement.
+          Built analysis-ready panel datasets by collecting, cleaning, and merging data from <strong>LSEG Refinitiv ESG scores, SEC 13F filings, and ESG mutual fund holdings</strong>. Applied event study and cross-sectional regression methods to show that high-ESG firms saw negative abnormal returns after the SEC's 2022 climate disclosure proposal.
         </p>
         <div class="card-meta">
           <a href="https://drive.google.com/file/d/1LyCBaW1m0oCa-Xb-0qRdzn6dbaruA0hr/view?usp=sharing" target="_blank">Slides</a>
